@@ -1,7 +1,7 @@
 {
   "name": "cessor",
   "version": "0.1.0",
-  "description": "Robust Redis + BullMQ image processing library with sandboxed workers. Designed to be extensible (AVIF, WebP, etc).",
+  "description": "Robust Redis + BullMQ image processing library with sandboxed workers.",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kennybabs-py/cessor.git"
