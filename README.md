@@ -31,9 +31,25 @@ yarn add image-cessor
 import { ImageProcessor } from "image-cessor";
 
 const processor = new ImageProcessor({
-  redis: { url: process.env.REDIS_URL },
-  processing: { width: 1280, quality: 75 },
+  redis: {
+    url: process.env.REDIS_URL, // or { host, port, password, ... }
+  },
+  processing: {
+    width: 1280,
+    quality: 75,
+  },
+  cache: {
+    enabled: true,
+    ttlSeconds: 7 * 24 * 3600, // optional
+  },
 });
+
+// or pre-existing instance
+
+import { Redis } from 'ioredis';
+
+const redis = new Redis(process.env.REDIS_URL);
+const processor = new ImageProcessor({ redis, ... });
 
 // Start workers (sandboxed by default in production)
 await processor.startWorker({ concurrency: 2 });
