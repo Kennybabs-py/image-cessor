@@ -1,0 +1,73 @@
+{
+  "name": "cessor",
+  "version": "0.1.0",
+  "description": "Robust Redis + BullMQ image processing library with sandboxed workers. Designed to be extensible (AVIF, WebP, etc).",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kennybabs-py/cessor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kennybabs-py/cessor/issues"
+  },
+  "homepage": "https://github.com/Kennybabs-py/cessor#readme",
+  "keywords": [
+    "bullmq",
+    "redis",
+    "sharp",
+    "image-processing",
+    "avif",
+    "webp",
+    "nextjs",
+    "sandboxed-worker"
+  ],
+  "license": "MIT",
+  "author": "Kehinde Babalola <babalolakehinde74@gmail.com>",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./processor": {
+      "types": "./dist/processor/image-processor.d.ts",
+      "import": "./dist/processor/image-processor.mjs",
+      "require": "./dist/processor/image-processor.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "clean": "rm -rf dist",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm run build && changeset publish"
+  },
+  "dependencies": {
+    "bullmq": "^5.40.0",
+    "ioredis": "^5.6.0",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@types/node": "^22.13.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "peerDependencies": {
+    "bullmq": "^5.0.0",
+    "ioredis": "^5.0.0",
+    "sharp": "^0.33.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
