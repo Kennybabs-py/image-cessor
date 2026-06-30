@@ -1,15 +1,15 @@
 {
-  "name": "cessor",
+  "name": "image-cessor",
   "version": "0.1.0",
   "description": "Robust Redis + BullMQ image processing library with sandboxed workers.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kennybabs-py/cessor.git"
+    "url": "https://github.com/Kennybabs-py/image-cessor.git"
   },
   "bugs": {
-    "url": "https://github.com/Kennybabs-py/cessor/issues"
+    "url": "https://github.com/Kennybabs-py/image-cessor/issues"
   },
-  "homepage": "https://github.com/Kennybabs-py/cessor#readme",
+  "homepage": "https://github.com/Kennybabs-py/image-cessor#readme",
   "keywords": [
     "bullmq",
     "redis",

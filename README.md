@@ -1,4 +1,4 @@
-# CESSOR (An Image Processor)
+# image-cessor (An Image Processor)
 
 A robust, Redis + BullMQ powered image processing library with sandboxed workers. Compresses large image into avif lightweight format losslessly. Designed to be extensible for multiple formats (AVIF, WebP, etc). Other formats coming soon.
 
