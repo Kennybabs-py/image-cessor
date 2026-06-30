@@ -13,13 +13,13 @@ A robust, Redis + BullMQ powered image processing library with sandboxed workers
 ## Installation
 
 ```bash
-npm install cessor bullmq ioredis sharp
+npm install image-cessor bullmq ioredis sharp
 ```
 
 ## Quick start
 
 ```ts
-import { ImageProcessor } from "cessor";
+import { ImageProcessor } from "image-cessor";
 
 const processor = new ImageProcessor({
   redis: { url: process.env.REDIS_URL },
@@ -41,7 +41,7 @@ if (result.status === "done") {
 
 ## Caching
 
-cessor can optionally cache processed image results in Redis to avoid re-processing the same image.
+image-cessor can optionally cache processed image results in Redis to avoid re-processing the same image.
 
 ### Enable caching
 
