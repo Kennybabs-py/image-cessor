@@ -13,7 +13,16 @@ A robust, Redis + BullMQ powered image processing library with sandboxed workers
 ## Installation
 
 ```bash
-npm install image-cessor bullmq ioredis sharp
+npm install image-cessor
+
+#or
+
+pnpm add image-cessor
+
+#or
+
+yarn add image-cessor
+
 ```
 
 ## Quick start
