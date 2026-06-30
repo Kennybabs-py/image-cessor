@@ -1,0 +1,5 @@
+---
+"image-cessor": minor
+---
+
+fixes
