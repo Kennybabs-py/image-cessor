@@ -1,5 +1,17 @@
 # image-cessor
 
+## 1.1.0
+
+### Minor Changes
+
+- ff04c11: fixes
+- minor fixes
+- fb202e0: fixed readme and code
+
+### Patch Changes
+
+- ff04c11: minor fixes
+
 ## 1.0.2
 
 ### Patch Changes
