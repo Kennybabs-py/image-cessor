@@ -32,7 +32,7 @@ import { ImageProcessor } from "image-cessor";
 
 const processor = new ImageProcessor({
   redis: {
-    url: process.env.REDIS_URL, // or { host, port, password, ... }
+    host: process.env.REDIS_URL, // or { host, port, password, ... }
   },
   processing: {
     width: 1280,
