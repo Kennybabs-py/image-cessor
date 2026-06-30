@@ -24,25 +24,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
+          cache: "npm"
 
       # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       # 4️⃣ TypeScript type check
       - name: Type check
-        run: pnpm run typecheck
+        run: npm run typecheck
         continue-on-error: false
 
       # 5️⃣ Lint
       - name: Lint-Scripts
-        run: pnpm run lint
+        run: npm run lint
         continue-on-error: false
 
       # 7️⃣ Build
       - name: Build
-        run: pnpm run build
+        run: npm run build
 
   release:
     runs-on: ubuntu-latest
