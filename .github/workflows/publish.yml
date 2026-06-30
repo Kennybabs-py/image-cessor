@@ -1,24 +1,45 @@
-name: Publish Package to npmjs
+name: Publish to npm
+
 on:
   push:
-    branches: [main]
-  # release:
-  #   types: [created]
+    branches:
+      - main
 
 jobs:
-  build:
+  publish:
+    name: Publish if there are changesets
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+      contents: write # Needed for version tags and changelog
+      id-token: write # Needed for npm provenance
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed for Changesets
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: npm run release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
