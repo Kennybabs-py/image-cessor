@@ -1,63 +1,35 @@
-# .github/workflows/ci-release.yml
-name: CI & Release
+name: Release
 
 on:
   push:
-    branches: [main]
-    tags:
-      - "v*.*.*"
-  pull_request:
-    branches: [main]
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    name: Build & Test
-
-    steps:
-      # 1️⃣ Checkout repo
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # 2️⃣ Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
-
-      # 3️⃣ Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # 4️⃣ TypeScript type check
-      - name: Type check
-        run: npm run typecheck
-        continue-on-error: false
-
-      # 5️⃣ Lint
-      - name: Lint-Scripts
-        run: npm run lint
-        continue-on-error: false
-
-      # 7️⃣ Build
-      - name: Build
-        run: npm run build
-
   release:
+    name: Release
     runs-on: ubuntu-latest
-    needs: build-and-test
-    if: startsWith(github.ref, 'refs/tags/v')
-    name: Publish to npm & GitHub
-
     steps:
-      # 1️⃣ Checkout repo
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # 2️⃣ Setup Node.js with npm registry
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 20
-          registry-url: "https://registry.npmjs.org"
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test
+
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
