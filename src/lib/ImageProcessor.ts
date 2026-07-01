@@ -5,7 +5,6 @@ import type {
   ImageProcessorOptions,
   ProcessResult,
   JobData,
-  SandboxMode,
 } from "../types/processor";
 import { UnrecoverableImageError } from "../types";
 
