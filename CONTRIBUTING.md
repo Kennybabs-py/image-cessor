@@ -1,6 +1,6 @@
-# Contributing to cessor
+# Contributing to image-cessor
 
-Thank you for your interest in contributing to **cessor**! 🎉
+Thank you for your interest in contributing to **image-cessor**! 🎉
 
 We welcome contributions of all kinds — bug reports, feature requests, documentation improvements, and code contributions.
 
@@ -16,7 +16,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 ### 1. Reporting Bugs
 
-If you find a bug, please [open an issue](https://github.com/yourusername/cessor/issues) and include:
+If you find a bug, please [open an issue](https://github.com/Kennybabs-py/image-cessor/issues) and include:
 
 - A clear and descriptive title
 - Steps to reproduce the behavior
@@ -30,7 +30,7 @@ We love new ideas! Before implementing a large feature, please open an issue fir
 
 ### 3. Working on Issues
 
-- Look for issues labeled [`good first issue`](https://github.com/yourusername/cessor/labels/good%20first%20issue) if you're new.
+- Look for issues labeled [`good first issue`](https://github.com/Kennybabs-py/image-cessor/labels/good%20first%20issue) if you're new.
 - Comment on the issue to let others know you're working on it.
 
 ---
@@ -47,7 +47,7 @@ We love new ideas! Before implementing a large feature, please open an issue fir
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/cessor.git
+git clone https://github.com/yourusername/image-cessor.git
 cd cessor
 
 # Install dependencies
