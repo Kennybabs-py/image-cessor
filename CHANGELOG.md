@@ -1,5 +1,11 @@
 # image-cessor
 
+## 1.2.0
+
+### Minor Changes
+
+- 6658ec6: bull mq rejected colon prefix, so it was switched to hyphen for job eviction
+
 ## 1.1.0
 
 ### Minor Changes
