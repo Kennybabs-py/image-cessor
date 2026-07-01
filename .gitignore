@@ -29,3 +29,5 @@ yarn-error.log*
 coverage/
 
 commands.txt
+
+lib-test.ts

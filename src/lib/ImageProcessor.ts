@@ -271,9 +271,8 @@ export class ImageProcessor {
   }
 
   private generateJobId(input: string): string {
-    return (
-      "avif:" + createHash("sha256").update(input).digest("hex").slice(0, 32)
-    );
+    const hash = createHash("sha256").update(input).digest("hex").slice(0, 24);
+    return `img-${hash}`;
   }
 
   /**
