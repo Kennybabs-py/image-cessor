@@ -1,6 +1,6 @@
 {
   "name": "image-cessor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Robust Redis + BullMQ image processing library with sandboxed workers.",
   "repository": {
     "type": "git",

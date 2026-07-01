@@ -1,5 +1,11 @@
 # image-cessor
 
+## 1.2.1
+
+### Patch Changes
+
+- a67a66e: bug and typo fix
+
 ## 1.2.0
 
 ### Minor Changes
